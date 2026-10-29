@@ -1,0 +1,212 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;700;900&display=swap');
+
+/* =========================================
+   CONFIGURACION GENERAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #050505;
+    overflow: hidden;
+}
+
+/* =========================================
+   PORTADA CONCHON BURGUER
+   ========================================= */
+
+#presentacion {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 480px;
+    overflow: hidden;
+    background-color: #050505;
+
+    /* Imagen cinematografica de la marca */
+    background-image: url('../portada-conchon.png');
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* =========================================
+   OCULTAR ELEMENTOS QUE YA ESTAN EN LA IMAGEN
+   ========================================= */
+
+#presentacion .shape,
+#presentacion .rombo,
+#presentacion .dots,
+#presentacion .linea,
+#presentacion .decoracion,
+#presentacion .mini,
+#presentacion .rayas,
+#presentacion .contenido .logo,
+#presentacion .contenido h1,
+#presentacion .contenido .separador,
+#presentacion .contenido p {
+    display: none !important;
+}
+
+/* Capa que contiene el boton */
+#presentacion .contenido {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* =========================================
+   BOTON ENTRAR
+   ========================================= */
+
+#presentacion #btnEntrar {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(390px, 80vw);
+    height: 70px;
+    padding: 0 55px 0 35px;
+
+    border: 2px solid #ff1738;
+    border-radius: 50px;
+
+    background: rgba(0, 0, 0, 0.90);
+    color: #ffffff;
+
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    box-shadow:
+        0 0 12px rgba(255, 23, 56, 0.85),
+        inset 0 0 12px rgba(255, 23, 56, 0.12);
+
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Flecha roja */
+#presentacion #btnEntrar::after {
+    content: "\2192";
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: #ff1738;
+    font-size: 27px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+/* Efecto al pasar el cursor */
+#presentacion #btnEntrar:hover {
+    background: #b90025;
+    box-shadow:
+        0 0 18px rgba(255, 23, 56, 0.95),
+        0 0 35px rgba(255, 23, 56, 0.40);
+
+    transform: translateX(-50%) scale(1.035);
+}
+
+/* Efecto al pulsar */
+#presentacion #btnEntrar:active {
+    transform: translateX(-50%) scale(0.97);
+}
+
+/* Accesibilidad con teclado */
+#presentacion #btnEntrar:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 5px;
+}
+
+/* =========================================
+   TABLETS Y MOVILES
+   ========================================= */
+
+@media (max-width: 700px) {
+    #presentacion {
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        /* Mantener la imagen sin deformarla */
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #presentacion #btnEntrar {
+        bottom: 5%;
+        width: min(320px, 82vw);
+        height: 58px;
+        font-size: 17px;
+        letter-spacing: 3px;
+    }
+
+    #presentacion #btnEntrar::after {
+        right: 20px;
+        font-size: 24px;
+    }
+}
+
+/* =========================================
+   PANTALLAS BAJAS
+   ========================================= */
+
+@media (max-height: 520px) {
+    #presentacion {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    #presentacion #btnEntrar {
+        bottom: 3%;
+        height: 48px;
+    }
+}
+
+/* =========================================
+   REDUCIR MOVIMIENTOS
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    #presentacion #btnEntrar {
+        transition: none;
+    }
+}
